@@ -319,9 +319,11 @@ POST /api/v1/metrics/filter
 ### ExpireOldSurveys  
 **Расписание:** раз в сутки
 
-**Логика:**
+**Логика истечения отправленных событий:**
 1. `UPDATE survey SET status = EXPIRED WHERE status = PENDING AND sent_at < NOW() - INTERVAL '7 days'`
-   значение интервала берется из настройки `survey-expiry-days`
+   значение интервала берется из настройки `sent-survey-expiry-days`
+2. `UPDATE survey SET status = EXPIRED WHERE status = PENDING AND sent_at < NOW() - INTERVAL '60 days'`
+   значение интервала берется из настройки `unsent-survey-expiry-days`
 
 ### AggregateMetrics
 **Расписание:** ежедневно в 00:05
@@ -372,7 +374,8 @@ POST /api/v1/metrics/filter
 ```yaml
 # application.yml
 feedback:
-  survey-expiry-days: 7
+  sent-survey-expiry-days: 7
+  unsent-survey-expiry-days: 60
 
 kafka:
   consumer:
@@ -382,6 +385,9 @@ kafka:
   producer:
     daily-metrics:
       topic: daily-metrics.V1
+
+logging:
+  config: classpath:ru/panyukovnn/referenceloggingstarter/logback-spring.xml
 ```
 
 ---
