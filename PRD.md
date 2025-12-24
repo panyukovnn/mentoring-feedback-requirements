@@ -322,7 +322,7 @@ POST /api/v1/metrics/filter
 **Логика истечения отправленных событий:**
 1. `UPDATE survey SET status = EXPIRED WHERE status = PENDING AND sent_at < NOW() - INTERVAL '7 days'`
    значение интервала берется из настройки `sent-survey-expiry-days`
-2. `UPDATE survey SET status = EXPIRED WHERE status = PENDING AND sent_at < NOW() - INTERVAL '60 days'`
+2. `UPDATE survey SET status = EXPIRED WHERE status = PENDING AND create_time < NOW() - INTERVAL '60 days'`
    значение интервала берется из настройки `unsent-survey-expiry-days`
 
 - Также проставить статус EXPIRED для опросов, если у их кампании задано значение `campaign.end_date` и оно в прошлом 
