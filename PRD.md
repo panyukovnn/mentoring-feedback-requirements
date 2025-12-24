@@ -89,9 +89,7 @@
 }
 ```
 
-- scheduled_at заполняется как:
-  - `create_time` + `delay_hours`, если у кампании не задан `start_date`
-  - `campaign.start_date` + `delay_hours`, если задан `start_date`
+- scheduled_at заполняется как `create_time` + `delay_hours`
 
 ### customer_feedback (Ответ клиента на опрос)
 ```
