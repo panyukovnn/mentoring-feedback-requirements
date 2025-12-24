@@ -89,7 +89,9 @@
 }
 ```
 
-- scheduled_at заполняется как `create_time` + `delay_hours`
+- scheduled_at заполняется как:
+  - `create_time` + `delay_hours`, если у кампании не задан `start_date`
+  - `campaign.start_date` + `delay_hours`, если задан `start_date`
 
 ### customer_feedback (Ответ клиента на опрос)
 ```
@@ -324,6 +326,8 @@ POST /api/v1/metrics/filter
    значение интервала берется из настройки `sent-survey-expiry-days`
 2. `UPDATE survey SET status = EXPIRED WHERE status = PENDING AND sent_at < NOW() - INTERVAL '60 days'`
    значение интервала берется из настройки `unsent-survey-expiry-days`
+
+- Также проставить статус EXPIRED для опросов, если у их кампании задано значение `campaign.end_date` и оно в прошлом 
 
 ### AggregateMetrics
 **Расписание:** ежедневно в 00:05
