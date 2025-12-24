@@ -1,32 +1,32 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
   <diagram name="Страница-1" id="0Fq-NGKE0tUgipTLh8qC">
-    <mxGraphModel dx="1665" dy="960" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1018" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-1" edge="1" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="gNW7F0TYRAxiCgQkNU4Q-12" value="отправка аналитики">
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-1" value="отправка аналитики" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-2" target="gNW7F0TYRAxiCgQkNU4Q-12" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="471" y="240" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="feedback" vertex="1">
-          <mxGeometry height="60" width="120" x="411" y="320" as="geometry" />
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-2" value="feedback" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="411" y="320" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-3" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- campaign&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- survey&lt;/div&gt;&lt;div&gt;- customer_feedback&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- daily_metrics&lt;/div&gt;" vertex="1">
-          <mxGeometry height="100" width="130" x="501" y="380" as="geometry" />
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-3" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- survey_type&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- campaign&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- survey&lt;/div&gt;&lt;div&gt;- customer_feedback&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- daily_metrics&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="501" y="380" width="130" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-4" edge="1" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="gNW7F0TYRAxiCgQkNU4Q-2" value="событие">
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-4" value="событие" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-5" target="gNW7F0TYRAxiCgQkNU4Q-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-5" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="kafka" vertex="1">
-          <mxGeometry height="60" width="120" x="681" y="320" as="geometry" />
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-5" value="kafka" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="681" y="320" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-6" edge="1" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="gNW7F0TYRAxiCgQkNU4Q-2" value="пройденный опрос">
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-6" value="пройденный опрос" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-8" target="gNW7F0TYRAxiCgQkNU4Q-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-7" edge="1" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="gNW7F0TYRAxiCgQkNU4Q-2" value="получить непройденные опросы">
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-7" value="получить непройденные опросы" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-8" target="gNW7F0TYRAxiCgQkNU4Q-2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="211" y="335" />
@@ -34,17 +34,17 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-8" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Пользователь" vertex="1">
-          <mxGeometry height="60" width="30" x="111" y="320" as="geometry" />
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-8" value="Пользователь" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="111" y="320" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-10" edge="1" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="gNW7F0TYRAxiCgQkNU4Q-2">
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="gNW7F0TYRAxiCgQkNU4Q-11" target="gNW7F0TYRAxiCgQkNU4Q-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-11" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="админка&amp;nbsp;&lt;div&gt;кампаний&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="120" x="411" y="500" as="geometry" />
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-11" value="админка&amp;nbsp;&lt;div&gt;кампаний&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="411" y="500" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-12" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" value="kafka" vertex="1">
-          <mxGeometry height="60" width="120" x="681" y="210" as="geometry" />
+        <mxCell id="gNW7F0TYRAxiCgQkNU4Q-12" value="kafka" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+          <mxGeometry x="681" y="210" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
