@@ -76,7 +76,7 @@
   id: UUID,
   campaign_id: UUID,
   guid: string,
-  context_type: enum(ORDER, TICKET),
+  context_type: varchar,
   context_id: string,
   status: enum(PENDING, COMPLETED, EXPIRED),
   scheduled_at: timestamp,
@@ -254,7 +254,7 @@ POST /api/v1/metrics/filter
 
 ### Входящие события (Consumer)
 
-**Topic:** `customer-events`
+**Topic:** `customer-events.V1`
 
 ```json
 {
@@ -292,7 +292,7 @@ POST /api/v1/metrics/filter
 
 ### Исходящие события (Producer)
 
-**Topic:** `daily-metrics`
+**Topic:** `daily-metrics.V1`
 
 Отправляется Job'ом `AggregateMetrics` ежедневно для каждой кампании с данными за предыдущий день.
 
@@ -332,18 +332,17 @@ POST /api/v1/metrics/filter
 
 **Логика:**
 1. Для каждой кампании посчитать метрики за прошедший день
+2. Отправить рассчитанные метрики в топик `daily-metrics.V1`
 
----
-
-## Логика наполнения daily_metrics
+#### Логика наполнения daily_metrics
 
 Таблица `daily_metrics` агрегирует ответы клиентов (`customer_feedback`) по дням для каждой кампании.
 
-### Когда создаются записи
+##### Когда создаются записи
 - **Scheduler AggregateMetrics** — ежедневно в 00:05 обрабатывает все ответы за предыдущий день
 - Для каждой пары `(campaign_id, date)` создаётся одна запись в `daily_metrics`
 
-### Алгоритм расчёта
+##### Алгоритм расчёта
 
 **Шаг 1.** Выбрать все `customer_feedback` за целевую дату (по `create_time`), сгруппировать по `campaign_id`
 
@@ -369,6 +368,8 @@ POST /api/v1/metrics/filter
 }
 ```
 
+**Шаг 4.** Отправить результат расчетов в топик kafka `daily-metrics.V1`
+
 ---
 
 ## 5. Конфигурация
@@ -378,15 +379,14 @@ POST /api/v1/metrics/filter
 feedback:
   sent-survey-expiry-days: 7
   unsent-survey-expiry-days: 60
-
-kafka:
-  consumer:
-    group-id: feedback
-    customer-events:
-      topic: customer-events.V1
-  producer:
-    daily-metrics:
-      topic: daily-metrics.V1
+  kafka:
+    consumer:
+      group-id: feedback
+      customer-events:
+        topic: customer-events.V1
+    producer:
+      daily-metrics:
+        topic: daily-metrics.V1
 
 logging:
   config: classpath:ru/panyukovnn/referenceloggingstarter/logback-spring.xml
