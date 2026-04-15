@@ -147,21 +147,21 @@ POST /api/v1/feedback/submit
 **Request:**
 ```json
 {
-  "survey_id": "uuid",
+  "surveyId": "uuid",
   "score": 9,
   "comment": "Отличный сервис!"
 }
 ```
 
 **Валидации:**
-1. `survey_id` существует и в статусе PENDING
+1. `surveyId` существует и в статусе PENDING
 2. `score` в допустимом диапазоне для типа опроса
 
 **Response (200):**
 ```json
 {
   "success": true,
-  "feedback_id": "uuid",
+  "feedbackId": "uuid",
   "message": "Спасибо за ваш отзыв!"
 }
 ```
@@ -179,18 +179,18 @@ GET /api/v1/feedback/surveys
 {
   "surveys": [
     {
-      "survey_id": "uuid",
-      "campaign_id": "uuid",
-      "survey_type": "NPS",
+      "surveyId": "uuid",
+      "campaignId": "uuid",
+      "surveyType": "NPS",
       "question": "Оцените от 0 до 10, порекомендуете ли вы нас?",
-      "scale_min": 0,
-      "scale_max": 10,
+      "scaleMin": 0,
+      "scaleMax": 10,
       "context": {
         "type": "ORDER",
-        "context_id": "order_456",
+        "contextId": "order_456",
         "timestamp": "2024-01-15"
       },
-      "sent_at": "2024-01-15T14:30:00Z"
+      "sentAt": "2024-01-15T14:30:00Z"
     }
   ]
 }
@@ -258,27 +258,27 @@ POST /api/v1/metrics/filter
 
 ```json
 {
-  "event_type": "ORDER_COMPLETED",
+  "eventType": "ORDER_COMPLETED",
   "guid": "cust_123",
-  "context_id": "order_456",
-  "context_type": "ORDER",
+  "contextId": "order_456",
+  "contextType": "ORDER",
   "timestamp": "2024-01-15T14:30:00Z",
   "metadata": {
-    "order_total": 5000,
-    "items_count": 3
+    "orderTotal": 5000,
+    "itemsCount": 3
   }
 }
 ```
 
 ```json
 {
-  "event_type": "TICKET_CLOSED",
+  "eventType": "TICKET_CLOSED",
   "guid": "cust_123", 
-  "context_id": "ticket_789",
-  "context_type": "TICKET",
+  "contextId": "ticket_789",
+  "contextType": "TICKET",
   "timestamp": "2024-01-15T15:00:00Z",
   "metadata": {
-    "resolution_time_hours": 2,
+    "resolutionTimeHours": 2,
     "category": "refund"
   }
 }
@@ -298,13 +298,13 @@ POST /api/v1/metrics/filter
 
 ```json
 {
-  "event_type": "DAILY_METRICS_AGGREGATED",
-  "campaign_id": "uuid",
-  "campaign_name": "NPS после заказа",
+  "eventType": "DAILY_METRICS_AGGREGATED",
+  "campaignId": "uuid",
+  "campaignName": "NPS после заказа",
   "date": "2024-01-15",
   "type": "NPS",
-  "total_responses": 150,
-  "score_value": 45.5,
+  "totalResponses": 150,
+  "scoreValue": 45.5,
   "promoters": 100,
   "passives": 30,
   "detractors": 20,
