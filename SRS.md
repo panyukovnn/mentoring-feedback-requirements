@@ -112,7 +112,7 @@
   id: UUID,
   campaign_id: UUID,
   date: date,
-  survey_type_code: varchar (FK → survey_type.code),
+  survey_type_code: varchar,
   total_responses: int,
   score_value: decimal,       // NPS: -100..100, CSAT: 0..100, CES: 1..5
   promoters: int | null,      // только для NPS
@@ -211,7 +211,7 @@ POST /api/v1/metrics/filter
 ```json
 {
   "campaignId": "uuid",
-  "type": "NPS",
+  "survey_type_code": "NPS",
   "dateFrom": "2024-01-01",
   "dateTo": "2024-01-31"
 }
@@ -225,7 +225,7 @@ POST /api/v1/metrics/filter
       "campaignId": "uuid",
       "campaignName": "NPS после заказа",
       "date": "2024-01-15",
-      "type": "NPS",
+      "survey_type_code": "NPS",
       "totalResponses": 150,
       "scoreValue": 45.5,
       "promoters": 100,
@@ -302,7 +302,7 @@ POST /api/v1/metrics/filter
   "campaignId": "uuid",
   "campaignName": "NPS после заказа",
   "date": "2024-01-15",
-  "type": "NPS",
+  "survey_type_code": "NPS",
   "totalResponses": 150,
   "scoreValue": 45.5,
   "promoters": 100,
@@ -311,6 +311,8 @@ POST /api/v1/metrics/filter
   "timestamp": "2024-01-16T00:05:00Z"
 }
 ```
+
+> **Доработка (не первый этап):** для гарантии согласованности записи в `daily_metrics` и отправки события в Kafka реализовать паттерн **Transactional Outbox** — сохранять событие в outbox-таблицу в той же транзакции, что и `daily_metrics`, и публиковать в Kafka отдельным процессом. На MVP допустима прямая отправка в Kafka сразу после сохранения метрик.
 
 ---
 
@@ -359,7 +361,7 @@ POST /api/v1/metrics/filter
 {
   campaign_id: UUID,
   date: целевая_дата,
-  type: тип_кампании,
+  survey_type_code: код_типа_кампании,
   total_responses: количество_ответов,
   score_value: рассчитанное_значение,
   promoters: количество (только NPS),
